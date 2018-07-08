@@ -1,0 +1,13 @@
+{
+  "Filters": [
+    {
+      "Name": "name",
+      "Values": [
+        "ubuntu/images/hvm-ssd/ubuntu-bionic-*"
+      ]
+    }
+  ],
+  "Owners": [
+    "099720109477"
+  ]
+}

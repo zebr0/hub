@@ -1,0 +1,9 @@
+#cloud-config
+runcmd:
+  - echo "{{ project }}" > /etc/projectname
+  - echo "{{ stage }}" > /etc/stagename
+  - add-apt-repository -y ppa:zebr0/master
+  - apt-get -y install idem
+  - idem run $(cat /etc/projectname)
+power_state:
+  mode: reboot
