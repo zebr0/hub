@@ -4,6 +4,6 @@ runcmd:
   - echo "{{ stage }}" > /etc/stagename
   - add-apt-repository -y ppa:zebr0/master
   - apt-get -y install idem
-  - idem run $(cat /etc/projectname)
+  - idem run {{ project }}
 power_state:
   mode: reboot
