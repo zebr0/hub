@@ -1,0 +1,53 @@
+---
+storage_pools:
+  - name: {{ project }}-{{ stage }}
+    driver: zfs
+
+networks:
+  - name: {{ project }}{{ stage }}0
+    type: bridge
+    config:
+      ipv4.address: {{ "lxd-network-cidr" | lookup }}
+      ipv4.nat: true
+      ipv6.address: none
+      dns.mode: dynamic
+
+profiles:
+  - name: {{ project }}-{{ stage }}
+    devices:
+      root:
+        type: disk
+        path: /
+        pool: {{ project }}-{{ stage }}
+      eth0:
+        type: nic
+        nictype: bridged
+        parent: {{ project }}{{ stage }}0
+
+containers:
+{% for container in "containers" | lookup | jsonloads %}
+  - name: {{ project }}-{{ stage }}-{{ container }}
+    source:
+      type: image
+      mode: pull
+      server: https://cloud-images.ubuntu.com/daily
+      protocol: simplestreams
+      alias: bionic
+    profiles:
+      - {{ project }}-{{ stage }}
+    config:
+      user.user-data: |
+        #cloud-config
+        ssh_authorized_keys:
+          - {{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}
+        runcmd:
+          - echo "{{ container }}" > /etc/hostname
+          - echo "{{ project }}" > /etc/projectname
+          - echo "{{ stage }}" > /etc/stagename
+          - add-apt-repository -y ppa:zebr0/master
+          - apt-get -y install idem
+          - idem run {{ container }}
+        power_state:
+          mode: reboot
+      boot.autostart: true
+{% endfor %}
