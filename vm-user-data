@@ -1,9 +1,9 @@
 #cloud-config
 runcmd:
-  - echo "{{ project }}" > /etc/projectname
-  - echo "{{ stage }}" > /etc/stagename
   - add-apt-repository -y ppa:zebr0/master
+  - apt-get -y install zebr0-core
+  - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
   - apt-get -y install idem
-  - idem run {{ project }}
+  - idem run aws
 power_state:
   mode: reboot
