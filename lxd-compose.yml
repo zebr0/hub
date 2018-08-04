@@ -42,9 +42,9 @@ containers:
           - {{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}
         runcmd:
           - echo "{{ container }}" > /etc/hostname
-          - echo "{{ project }}" > /etc/projectname
-          - echo "{{ stage }}" > /etc/stagename
           - add-apt-repository -y ppa:zebr0/master
+          - apt-get -y install zebr0-core
+          - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
           - apt-get -y install idem
           - idem run {{ container }}
         power_state:
