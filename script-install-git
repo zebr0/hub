@@ -1,0 +1,5 @@
+zebr0-script run script-common-ssh
+
+apt -y install git
+
+su ubuntu -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"

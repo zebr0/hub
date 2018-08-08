@@ -1,0 +1,3 @@
+zebr0-script run script-common-jetbrains
+
+snap install pycharm-community --classic
