@@ -1,0 +1,21 @@
+apt -y install openjdk-11-jdk
+
+mkdir -p /opt/wildfly
+wget -q https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.tar.gz -O /tmp/wildfly.tar.gz
+sha256sum /tmp/wildfly.tar.gz | grep f74fa1882a83fc6650fb43d21ed4527eeb5478f39878f15f1f79d3dc01a997f9
+tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
+
+wget -q https://jdbc.postgresql.org/download/postgresql-42.2.4.jar -O /tmp/postgresql.jar
+
+useradd wildfly
+chown -R wildfly:wildfly /opt/wildfly
+
+zebr0-lookup script-install-wildfly-service > /lib/systemd/system/wildfly.service
+systemctl enable wildfly.service
+systemctl start wildfly.service
+
+sleep 10
+
+su wildfly -c "/opt/wildfly/bin/add-user.sh admin admin"
+zebr0-lookup script-install-wildfly-conf > /tmp/wildfly.conf
+su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/tmp/wildfly.conf"

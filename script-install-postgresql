@@ -1,0 +1,5 @@
+apt -y install postgresql-10
+
+# todo: find a way to better secure this (filter by lan addresses ?)
+su postgres -c "zebr0-lookup script-install-postgresql-conf | patch /etc/postgresql/10/main/postgresql.conf"
+su postgres -c "zebr0-lookup script-install-postgresql-hbaconf | patch /etc/postgresql/10/main/pg_hba.conf"
