@@ -2,4 +2,5 @@ zebr0-script run script-common-ssh
 
 apt -y install git
 
+git config --global user.useConfigOnly true
 su ubuntu -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
