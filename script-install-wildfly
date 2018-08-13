@@ -1,4 +1,5 @@
 apt -y install openjdk-11-jdk
+apt -y install maven
 
 mkdir -p /opt/wildfly
 wget -q https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.tar.gz -O /tmp/wildfly.tar.gz
