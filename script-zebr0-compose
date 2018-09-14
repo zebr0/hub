@@ -4,7 +4,7 @@ storage_pools:
     driver: zfs
 
 networks:
-  - name: {{ project }}{{ stage }}0
+  - name: {{ "network-name" | lookup(project ~ stage ~ '0') }}
     type: bridge
     config:
       ipv4.address: {{ "lxd-network-cidr" | lookup }}
