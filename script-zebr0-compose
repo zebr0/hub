@@ -3,8 +3,9 @@ storage_pools:
   - name: {{ project }}-{{ stage }}
     driver: zfs
 
+{% set network_name = "zebr" ~ (project ~ stage) | hash | truncate(10, end="") ~ 0 %}
 networks:
-  - name: {{ "network-name" | lookup(project ~ stage ~ '0') }}
+  - name: {{ network_name }}
     type: bridge
     config:
       ipv4.address: {{ "lxd-network-cidr" | lookup }}
@@ -22,10 +23,10 @@ profiles:
       eth0:
         type: nic
         nictype: bridged
-        parent: {{ project }}{{ stage }}0
+        parent: {{ network_name }}
 
 containers:
-{% for container in "containers" | lookup | jsonloads %}
+{% for container in "containers" | lookup | json %}
   - name: {{ project }}-{{ stage }}-{{ container }}
     source:
       type: image
