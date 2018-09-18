@@ -1,2 +1,7 @@
 zebr0-script run script-common-upgrade
-zebr0-script run script-install-postgresql
+
+apt -y install postgresql-10
+
+# todo: find a way to secure this better (filter by lan addresses ?)
+su postgres -c "zebr0-lookup script-postgresql-conf | patch /etc/postgresql/10/main/postgresql.conf"
+su postgres -c "zebr0-lookup script-postgresql-hbaconf | patch /etc/postgresql/10/main/pg_hba.conf"
