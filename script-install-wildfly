@@ -2,11 +2,11 @@ apt -y install openjdk-11-jdk
 apt -y install maven
 
 mkdir -p /opt/wildfly
-wget -q https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.tar.gz -O /tmp/wildfly.tar.gz
-sha256sum /tmp/wildfly.tar.gz | grep f74fa1882a83fc6650fb43d21ed4527eeb5478f39878f15f1f79d3dc01a997f9
+wget -q https://download.jboss.org/wildfly/14.0.1.Final/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
+sha1sum /tmp/wildfly.tar.gz | grep 757d89d86d01a9a3144f34243878393102d57384
 tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
 
-wget -q https://jdbc.postgresql.org/download/postgresql-42.2.4.jar -O /tmp/postgresql.jar
+wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /tmp/postgresql.jar
 
 useradd wildfly
 chown -R wildfly:wildfly /opt/wildfly
