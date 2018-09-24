@@ -2,7 +2,5 @@ zebr0-script run script-common-upgrade
 zebr0-script run script-common-ssh
 zebr0-script run script-install-lxd
 
-apt -y install zebr0-template
-
-zebr0-lookup script-zebr0-compose | zebr0-template > /etc/zebr0/lxd-compose.yml
+zebr0-lookup script-zebr0-compose --render > /etc/zebr0/lxd-compose.yml
 cat /etc/zebr0/lxd-compose.yml | lxd-compose create
