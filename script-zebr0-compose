@@ -39,10 +39,10 @@ containers:
     config:
       user.user-data: |
         #cloud-config
+        hostname: {{ container }}
         ssh_authorized_keys:
           - {{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}
         runcmd:
-          - echo "{{ container }}" > /etc/hostname
           - add-apt-repository -y ppa:zebr0/master
           - apt -y install zebr0-script
           - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
