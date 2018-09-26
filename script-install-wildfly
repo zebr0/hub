@@ -5,7 +5,7 @@ wget -q https://s3.eu-central-1.amazonaws.com/mazerty-mirror/wildfly-14.0.1.Fina
 sha1sum /tmp/wildfly.tar.gz | grep 757d89d86d01a9a3144f34243878393102d57384
 tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
 
-wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /tmp/postgresql.jar
+wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /var/tmp/postgresql.jar
 
 useradd wildfly
 chown -R wildfly:wildfly /opt/wildfly
@@ -16,5 +16,5 @@ systemctl start wildfly.service
 
 sleep 10
 
-zebr0-lookup script-install-wildfly-conf > /tmp/wildfly-install.conf
-su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/tmp/wildfly-install.conf"
+zebr0-lookup script-install-wildfly-conf > /var/tmp/wildfly-install.conf
+su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"
