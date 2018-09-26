@@ -1,0 +1,5 @@
+zebr0-script run script-common-upgrade
+zebr0-script run script-install-nginx
+
+zebr0-lookup script-nginx-conf > /etc/nginx/sites-available/reverse-proxy.conf
+ln -sf /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/default

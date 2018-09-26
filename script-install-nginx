@@ -1,4 +1,4 @@
 apt -y install nginx
 
-zebr0-lookup script-install-nginx-conf > /etc/nginx/sites-available/reverse-proxy.conf
-ln -sf /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/default
+zebr0-lookup script-install-nginx-patch | patch /lib/systemd/system/nginx.service
+systemctl daemon-reload
