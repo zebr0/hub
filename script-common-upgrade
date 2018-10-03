@@ -1,4 +1,4 @@
 apt update
-apt -y upgrade
+DEBIAN_FRONTEND=noninteractive apt -y upgrade
 apt -y dist-upgrade
 apt -y autoremove
