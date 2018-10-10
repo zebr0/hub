@@ -1,1 +1,15 @@
-["postgresql", "wildfly", "nginx"]
+[
+  {
+    "name": "postgresql",
+    "script": "script-postgresql"
+  },
+  {
+    "name": "wildfly",
+    "script": "script-wildfly"
+  },
+  {
+    "name": "nginx",
+    "script": "script-nginx",
+    "ip": "10.0.1.1"
+  }
+]

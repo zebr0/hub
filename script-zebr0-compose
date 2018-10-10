@@ -11,7 +11,7 @@ networks:
 
 containers:
 {% for container in "containers" | lookup | json %}
-  - name: {{ project }}-{{ stage }}-{{ container }}
+  - name: {{ project }}-{{ stage }}-{{ container.name }}
     source:
       type: image
       mode: pull
@@ -27,17 +27,18 @@ containers:
         type: nic
         nictype: bridged
         parent: {{ network_name }}
+        {% if container.ip %}ipv4.address: {{ container.ip }}{% endif %}
     config:
       user.user-data: |
         #cloud-config
-        hostname: {{ container }}
+        hostname: {{ container.name }}
         ssh_authorized_keys:
           - {{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}
         runcmd:
           - add-apt-repository -y ppa:zebr0/master
           - apt -y install zebr0-script
           - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
-          - zebr0-script run script-{{ container }}
+          - zebr0-script run {{ container.script }}
         power_state:
           mode: reboot
       boot.autostart: true
