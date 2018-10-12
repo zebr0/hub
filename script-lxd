@@ -3,5 +3,5 @@ zebr0-script run script-common-ssh
 zebr0-script run script-install-lxd
 zebr0-script run script-install-iptablespersistent
 
-zebr0-lookup script-zebr0-compose --render > /etc/zebr0/lxd-compose.yml
+zebr0-lookup script-lxd-compose --render > /etc/zebr0/lxd-compose.yml
 cat /etc/zebr0/lxd-compose.yml | lxd-compose create
