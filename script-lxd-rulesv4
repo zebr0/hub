@@ -1,0 +1,4 @@
+*nat
+# example:
+# -A PREROUTING -i eth0 -p tcp -m tcp --dport 80 -j DNAT --to-destination x.x.x.x:80
+COMMIT
