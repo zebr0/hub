@@ -1,7 +1,11 @@
 server {
   listen 80;
 
+  location /{{ project }} {
+    proxy_pass http://wildfly:8080;
+  }
+
   location / {
-    proxy_pass http://wildfly:8080/{{ project }}-current;
+    return 301 http://$host/{{ project }};
   }
 }
