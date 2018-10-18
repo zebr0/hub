@@ -1,2 +1,2 @@
-zebr0-script run script-common-upgrade
-zebr0-script run script-install-nginx
+## script script-common-upgrade
+## script script-install-nginx

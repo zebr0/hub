@@ -1,4 +1,4 @@
-zebr0-script run script-install-git
+## script script-install-git
 
-zebr0-lookup script-common-jetbrains-gitignore > /etc/gitignore
+## lookup script-common-jetbrains-gitignore /etc/gitignore
 git config --system core.excludesfile /etc/gitignore

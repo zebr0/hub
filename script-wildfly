@@ -1,8 +1,8 @@
-zebr0-script run script-common-upgrade
-zebr0-script run script-install-wildfly
+## script script-common-upgrade
+## script script-install-wildfly
 
 su wildfly -c "/opt/wildfly/bin/add-user.sh admin admin"
-zebr0-lookup script-wildfly-conf > /var/tmp/wildfly.conf
+## lookup script-wildfly-conf /var/tmp/wildfly.conf
 su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly.conf"
 
 apt -y install maven

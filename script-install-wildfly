@@ -10,11 +10,11 @@ wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /var/tmp/p
 useradd wildfly
 chown -R wildfly:wildfly /opt/wildfly
 
-zebr0-lookup script-install-wildfly-service > /lib/systemd/system/wildfly.service
+## lookup script-install-wildfly-service /lib/systemd/system/wildfly.service
 systemctl enable wildfly.service
 systemctl start wildfly.service
 
 sleep 10
 
-zebr0-lookup script-install-wildfly-conf > /var/tmp/wildfly-install.conf
+## lookup script-install-wildfly-conf /var/tmp/wildfly-install.conf
 su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"

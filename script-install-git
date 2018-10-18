@@ -1,4 +1,4 @@
-zebr0-script run script-common-ssh
+## script script-common-ssh
 
 apt -y install git
 

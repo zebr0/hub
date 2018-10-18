@@ -1,4 +1,4 @@
-zebr0-script run script-common-jetbrains
+## script script-common-jetbrains
 
 apt -y install openjdk-11-source
 apt -y install openjdk-11-doc

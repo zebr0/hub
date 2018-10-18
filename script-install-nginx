@@ -1,4 +1,5 @@
 apt -y install nginx
 
-zebr0-lookup script-install-nginx-patch | patch /lib/systemd/system/nginx.service
+## lookup script-install-nginx-patch /var/tmp/nginx.service.patch
+patch /lib/systemd/system/nginx.service /var/tmp/nginx.service.patch
 systemctl daemon-reload
