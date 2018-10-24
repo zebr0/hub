@@ -1,8 +1,8 @@
 #cloud-config
 runcmd:
-  - add-apt-repository -y ppa:zebr0/master
-  - apt -y install zebr0-script
-  - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
-  - zebr0-script run
+- add-apt-repository -y ppa:zebr0/master
+- apt -y install zebr0-script
+- zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
+- zebr0-script run
 power_state:
   mode: reboot
