@@ -4,5 +4,5 @@ runcmd:
 - apt -y install zebr0-script
 - zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
 - zebr0-script run
-power_state:
-  mode: reboot
+- shutdown -r
+- touch /var/tmp/done

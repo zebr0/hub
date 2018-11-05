@@ -62,7 +62,7 @@ containers:
       hostname: {{ container.name }}
       runcmd:
       - zebr0-script run {{ container.script }}
-      power_state:
-        mode: reboot
+      - shutdown -r
+      - touch /var/tmp/done
     boot.autostart: true
 {% endfor %}
