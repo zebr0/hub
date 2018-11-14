@@ -1,9 +1,0 @@
-## script script-common-upgrade
-## script script-common-ssh
-## script script-install-lxd
-## script script-install-iptablespersistent
-
-## lookup script-lxd-rulesv4 /etc/iptables/rules.v4
-## lookup script-lxd-compose /etc/zebr0/lxd-compose.yml
-
-cat /etc/zebr0/lxd-compose.yml | lxd-compose create

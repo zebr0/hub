@@ -1,2 +1,2 @@
 deploy /var/tmp/postgresql.jar
-data-source add --name=postgresql --connection-url=jdbc:postgresql://postgresql:5432/postgres --driver-name=postgresql.jar --jndi-name=java:/comp/env/jdbc/postgresql --user-name=postgres
+data-source add --name=postgresql --connection-url=jdbc:postgresql://localhost:5432/postgres --driver-name=postgresql.jar --jndi-name=java:/comp/env/jdbc/postgresql --user-name=postgres

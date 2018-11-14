@@ -18,3 +18,4 @@ sleep 10
 
 ## lookup script-install-wildfly-conf /var/tmp/wildfly-install.conf
 su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"
+su wildfly -c "/opt/wildfly/bin/add-user.sh admin admin"

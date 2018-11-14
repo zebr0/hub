@@ -1,5 +1,0 @@
-*nat
-{% set interface = "ip -o -4 route show to default | cut -d' ' -f5" | sh %}
--A PREROUTING -i {{ interface }} -p tcp -m tcp --dport 80 -j DNAT --to-destination 10.0.1.2:80
--A PREROUTING -i {{ interface }} -p tcp -m tcp --dport 443 -j DNAT --to-destination 10.0.1.2:443
-COMMIT

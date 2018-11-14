@@ -1,6 +1,0 @@
-apt -y install zfsutils-linux
-apt -y install lxd
-apt -y install lxd-compose
-
-## lookup script-install-lxd-preseed /var/tmp/lxd-preseed.yml
-cat /var/tmp/lxd-preseed.yml | lxd init --preseed

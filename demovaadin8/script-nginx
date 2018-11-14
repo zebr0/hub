@@ -1,5 +1,0 @@
-## script script-common-upgrade
-## script script-install-nginx
-
-## lookup script-nginx-conf /etc/nginx/sites-available/reverse-proxy.conf
-ln -sf /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/default

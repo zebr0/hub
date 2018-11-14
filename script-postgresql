@@ -1,9 +1,0 @@
-## script script-common-upgrade
-
-apt -y install postgresql-10
-
-# todo: find a way to secure this better (filter by lan addresses ?)
-## lookup script-postgresql-conf /var/tmp/postgresql.conf.patch
-su postgres -c "patch /etc/postgresql/10/main/postgresql.conf /var/tmp/postgresql.conf.patch"
-## lookup script-postgresql-hbaconf /var/tmp/pg_hba.conf.patch
-su postgres -c "patch /etc/postgresql/10/main/pg_hba.conf /var/tmp/pg_hba.conf.patch"
