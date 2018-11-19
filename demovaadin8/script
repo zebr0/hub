@@ -2,7 +2,7 @@
 ## script script-install-postgresql
 ## script script-install-wildfly
 
-apt -y install maven
+apt-get -y install maven
 wget {{ "source-url" | lookup }} -O /var/tmp/source.tar.gz
 tar -xf /var/tmp/source.tar.gz -C /usr/local/src
 mvn -f /usr/local/src/{{ project }}-{{ stage }}/pom.xml install

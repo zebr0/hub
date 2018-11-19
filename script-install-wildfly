@@ -1,4 +1,4 @@
-apt -y install openjdk-11-jdk
+apt-get -y install openjdk-11-jdk
 
 mkdir -p /opt/wildfly
 wget -q https://s3.eu-central-1.amazonaws.com/mazerty-mirror/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
