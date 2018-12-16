@@ -1,6 +1,6 @@
 ## script script-common-upgrade
-## script script-install-postgresql
-## script script-install-wildfly
+## script script-install-postgresql10
+## script script-install-wildfly14
 
 apt-get -y install maven
 wget {{ "source-url" | lookup }} -O /var/tmp/source.tar.gz
