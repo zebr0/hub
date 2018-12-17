@@ -1,4 +1,6 @@
 #cloud-config
+ssh_authorized_keys:
+- {{ "cat ~/.ssh/id_rsa.pub" | sh }}
 apt:
   sources:
     zebr0:
