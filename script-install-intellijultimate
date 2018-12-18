@@ -1,6 +1,8 @@
 ## script script-common-jetbrains
 
+apt-get -y install openjdk-11-jdk
 apt-get -y install openjdk-11-source
 apt-get -y install openjdk-11-doc
+apt-get -y install maven
 
 snap install intellij-idea-ultimate --classic
