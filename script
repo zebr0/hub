@@ -1,4 +1,4 @@
-## script script-common-upgrade
+---
+- include: script-common-upgrade
 
-# just a default nginx for the default script
-## script script-install-nginx
+- include: script-install-nginx

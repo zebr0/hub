@@ -1,3 +1,4 @@
-## script script-install-nodejs10
+---
+- include: script-install-nodejs10
 
-npm install -g @angular/cli
+- npm install -g @angular/cli

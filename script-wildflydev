@@ -1,9 +1,10 @@
-systemctl stop wildfly.service
-systemctl disable wildfly.service
+---
+- systemctl stop wildfly.service
+- systemctl disable wildfly.service
 
-chown -R ubuntu:ubuntu /opt/wildfly
+- chown -R ubuntu:ubuntu /opt/wildfly
 
-sed -i 's/User=wildfly/User=ubuntu/g' /lib/systemd/system/wildfly.service
-systemctl daemon-reload
+- sed -i 's/User=wildfly/User=ubuntu/g' /lib/systemd/system/wildfly.service
+- systemctl daemon-reload
 
-## script script-install-intellijultimate
+- include: script-install-intellijultimate

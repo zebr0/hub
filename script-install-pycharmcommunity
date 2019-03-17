@@ -1,3 +1,4 @@
-## script script-common-jetbrains
+---
+- include: script-common-jetbrains
 
-snap install pycharm-community --classic
+- snap install pycharm-community --classic

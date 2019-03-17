@@ -1,21 +1,24 @@
-apt-get -y install openjdk-11-jdk
+---
+- apt-get -y install openjdk-11-jdk
 
-mkdir -p /opt/wildfly
-wget -q https://s3.eu-central-1.amazonaws.com/mazerty-mirror/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
-sha1sum /tmp/wildfly.tar.gz | grep 757d89d86d01a9a3144f34243878393102d57384
-tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
+- mkdir -p /opt/wildfly
+- wget -q https://s3.eu-central-1.amazonaws.com/mazerty-mirror/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
+- sha1sum /tmp/wildfly.tar.gz | grep 757d89d86d01a9a3144f34243878393102d57384
+- tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
 
-wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /var/tmp/postgresql.jar
+- wget -q https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -O /var/tmp/postgresql.jar
 
-useradd wildfly
-chown -R wildfly:wildfly /opt/wildfly
+- useradd wildfly
+- chown -R wildfly:wildfly /opt/wildfly
 
-## lookup script-install-wildfly14-service /lib/systemd/system/wildfly.service
-systemctl enable wildfly.service
-systemctl start wildfly.service
+- lookup: script-install-wildfly14-service
+  path: /lib/systemd/system/wildfly.service
+- systemctl enable wildfly.service
+- systemctl start wildfly.service
 
-sleep 10
+- sleep 10
 
-## lookup script-install-wildfly14-conf /var/tmp/wildfly-install.conf
-su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"
-su wildfly -c "/opt/wildfly/bin/add-user.sh admin admin"
+- lookup: script-install-wildfly14-conf
+  path: /var/tmp/wildfly-install.conf
+- su wildfly -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"
+- su wildfly -c "/opt/wildfly/bin/add-user.sh admin admin"

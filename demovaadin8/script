@@ -1,12 +1,14 @@
-## script script-common-upgrade
-## script script-install-postgresql10
-## script script-install-wildfly14
+---
+- include: script-common-upgrade
+- include: script-install-postgresql10
+- include: script-install-wildfly14
 
-apt-get -y install maven
-wget {{ "source-url" | lookup }} -O /var/tmp/source.tar.gz
-tar -xf /var/tmp/source.tar.gz -C /usr/local/src
-mvn -f /usr/local/src/{{ project }}-{{ stage }}/pom.xml install
+- apt-get -y install maven
+- wget {{ "source-url" | lookup }} -O /var/tmp/source.tar.gz
+- tar -xf /var/tmp/source.tar.gz -C /usr/local/src
+- mvn -f /usr/local/src/{{ project }}-{{ stage }}/pom.xml install
 
-## script script-install-nginx
-## lookup script-nginx-conf /etc/nginx/sites-available/reverse-proxy.conf
-ln -sf /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/default
+- include: script-install-nginx
+- lookup: script-nginx-conf
+  path: /etc/nginx/sites-available/reverse-proxy.conf
+- ln -sf /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/default
