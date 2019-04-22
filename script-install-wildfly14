@@ -2,7 +2,7 @@
 - apt-get -y install openjdk-11-jdk
 
 - mkdir -p /opt/wildfly
-- wget -q https://s3.eu-central-1.amazonaws.com/mazerty-mirror/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
+- wget -q https://mirror.mazerty.fr/wildfly-14.0.1.Final.tar.gz -O /tmp/wildfly.tar.gz
 - sha1sum /tmp/wildfly.tar.gz | grep 757d89d86d01a9a3144f34243878393102d57384
 - tar -xf /tmp/wildfly.tar.gz -C /opt/wildfly --strip 1
 
