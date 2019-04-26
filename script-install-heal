@@ -1,0 +1,4 @@
+---
+- apt-get -y install heal
+- lookup: script-install-heal-conf
+  path: /etc/heal.conf.d/zebr0.yaml

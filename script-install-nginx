@@ -5,3 +5,6 @@
   path: /var/tmp/nginx.service.patch
 - patch /lib/systemd/system/nginx.service /var/tmp/nginx.service.patch
 - systemctl daemon-reload
+
+- lookup: script-install-nginx-heal
+  path: /etc/heal.conf.d/nginx.yaml

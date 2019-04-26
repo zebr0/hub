@@ -1,4 +1,7 @@
 ---
 - include: script-common-upgrade
+- include: script-install-heal
 
 - include: script-install-nginx
+
+- echo "sleep 1 && shutdown -r now" | at now
