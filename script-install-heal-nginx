@@ -1,0 +1,6 @@
+server {
+  listen 2501;
+
+  root /var/tmp;
+  try_files /status.json =404;
+}
