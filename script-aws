@@ -1,0 +1,13 @@
+---
+- include: script-common-upgrade
+- include: script-install-nginx
+- include: script-install-letsencrypt
+- include: script-install-healssl
+- include: script-install-lxd
+
+- zebr0-lxd create
+- lookup: script-aws-nginx
+  path: /etc/nginx/sites-available/aws
+- ln -sf /etc/nginx/sites-available/aws /etc/nginx/sites-enabled/aws
+
+- echo "sleep 1 && shutdown -r now" | at now
