@@ -1,0 +1,5 @@
+---
+- include: script-install-heal
+- lookup: script-install-healssl-nginx
+  path: /etc/nginx/sites-available/healssl
+- ln -sf /etc/nginx/sites-available/healssl /etc/nginx/sites-enabled/heal
