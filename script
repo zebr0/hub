@@ -1,7 +1,8 @@
 ---
 - include: script-common-upgrade
+- include: script-install-nginx
 - include: script-install-heal
 
-- include: script-install-nginx
+- ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 - echo "sleep 1 && shutdown -r now" | at now
