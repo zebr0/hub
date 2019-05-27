@@ -1,5 +1,4 @@
 ---
-- apt-get -y install letsencrypt
 - apt-get -y install python3-certbot-nginx
 
 - certbot --nginx certonly --non-interactive --agree-tos --email {{ "email" | lookup }} --domain {{ "fqdn" | lookup }}

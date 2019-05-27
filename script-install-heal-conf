@@ -3,3 +3,5 @@
   fix: systemctl restart systemd-networkd.service && sleep 10
 - test: "[ -f /var/tmp/zebr0-script-done ] || ps -C zebr0-script"
   fix: false
+- test: netstat -ltn4 | grep 0.0.0.0:2501 && curl --fail http://127.0.0.1:2501
+  fix: systemctl restart nginx.service && sleep 5

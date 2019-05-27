@@ -1,8 +1,6 @@
 ---
 - include: script-common-upgrade
-- include: script-install-nginx
-- include: script-install-letsencrypt
-- include: script-install-healssl
+- include: script-install-heal-ssl
 - include: script-install-lxd
 
 - zebr0-lxd create

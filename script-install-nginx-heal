@@ -1,3 +1,0 @@
----
-- test: netstat -ltn4 | grep 0.0.0.0:2501 && curl --fail http://127.0.0.1:2501 || curl --fail https://{{ "fqdn" | lookup }}:2501
-  fix: systemctl restart nginx.service && sleep 5

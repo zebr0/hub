@@ -5,7 +5,4 @@
   path: /var/tmp/nginx.service.patch
 - patch /lib/systemd/system/nginx.service /var/tmp/nginx.service.patch
 
-- lookup: script-install-nginx-heal
-  path: /etc/heal.conf.d/nginx.yaml
-
 - rm /etc/nginx/sites-enabled/default
