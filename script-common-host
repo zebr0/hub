@@ -1,0 +1,10 @@
+---
+- include: script-common-upgrade
+- include: script-install-heal-ssl
+
+- include: script-install-lxd
+- zebr0-lxd create
+
+- lookup: script-common-host-nginx
+  path: /etc/nginx/sites-available/lxd
+- ln -sf /etc/nginx/sites-available/lxd /etc/nginx/sites-enabled/lxd

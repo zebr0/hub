@@ -1,0 +1,2 @@
+---
+- echo "sleep 1 && shutdown -r now" | at now
