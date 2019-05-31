@@ -2,6 +2,8 @@
 storage_pools:
 - name: default
   driver: zfs
+  config:
+    size: {{ "lxd-volume-size" | lookup }}GB
 
 networks:
 - name: lxd0
