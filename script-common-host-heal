@@ -1,0 +1,3 @@
+---
+- test: heal-check http://$(dig +short @{{ "lxd-host-ip" | lookup }} {{ project }}-{{ stage }}):2501
+  fix: touch /var/tmp/bigfail && false
