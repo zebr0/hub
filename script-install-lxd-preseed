@@ -9,7 +9,7 @@ networks:
 - name: lxd0
   type: bridge
   config:
-    ipv4.address: 10.0.0.1/24
+    ipv4.address: {{ "lxd-network-cidr" | lookup }}
     ipv4.nat: true
     ipv6.address: none
     dns.mode: dynamic

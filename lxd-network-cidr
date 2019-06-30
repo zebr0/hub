@@ -1,0 +1,1 @@
+{{ "lxd-host-ip" | lookup }}/24
