@@ -1,11 +1,7 @@
 {
   "Filters": [
-    {
-      "Name": "name",
-      "Values": [
-        "ubuntu/images/hvm-ssd/ubuntu-bionic-*"
-      ]
-    }
+    {"Name": "name", "Values": ["ubuntu/images/hvm-ssd/ubuntu-bionic-*"]},
+    {"Name": "architecture", "Values": ["x86_64"]}
   ],
   "Owners": [
     "099720109477"
