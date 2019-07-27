@@ -1,4 +1,3 @@
 ---
 - include: script-common-host
-
 - include: script-common-reboot
