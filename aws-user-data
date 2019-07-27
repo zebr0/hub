@@ -1,6 +1,4 @@
 #cloud-config
-ssh_authorized_keys:
-- {{ "cat ~/.ssh/id_rsa.pub" | sh }}
 runcmd:
 - add-apt-repository -y ppa:zebr0/master
 - apt-get -y install zebr0-script
