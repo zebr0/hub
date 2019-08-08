@@ -1,0 +1,6 @@
+server {
+  listen 2503;
+
+  root /var/tmp;
+  try_files /backup =404;
+}

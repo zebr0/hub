@@ -1,0 +1,9 @@
+---
+- lookup: script-install-backup-nginx
+  path: /etc/nginx/sites-enabled/backup
+- lookup: script-install-backup-script
+  path: /usr/local/bin/backup.sh
+- chmod +x /usr/local/bin/backup.sh
+- lookup: script-install-backup-service
+  path: /lib/systemd/system/backup.service
+- echo "systemctl start backup.service" | at midnight

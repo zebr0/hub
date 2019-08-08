@@ -1,0 +1,3 @@
+#!/bin/sh -ex
+
+echo "dummy data" > /var/tmp/backup

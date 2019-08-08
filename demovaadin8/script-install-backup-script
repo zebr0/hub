@@ -1,0 +1,6 @@
+#!/bin/sh -ex
+
+systemctl stop wildfly.service
+sleep 5
+pg_dump --host localhost --username postgres --format custom | gzip > /var/tmp/pg_dump.gz
+mv /var/tmp/pg_dump.gz /var/tmp/backup
