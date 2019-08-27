@@ -1,6 +1,7 @@
 ---
 - include: script-common-upgrade
 - include: script-install-heal
+- include: script-install-backup
 
 - include: script-install-postgresql10
 - include: script-install-wildfly
@@ -13,7 +14,5 @@
 - lookup: script-install-wildfly-nginx
   path: /etc/nginx/sites-available/wildfly
 - ln -sf /etc/nginx/sites-available/wildfly /etc/nginx/sites-enabled/wildfly
-
-- include: script-install-backup
 
 - include: script-common-reboot
