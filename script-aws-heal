@@ -1,0 +1,3 @@
+---
+- test: "! curl --head --fail http://{{ "lxd-container-ip" | lookup }}:2503"
+  fix: curl http://{{ "lxd-container-ip" | lookup }}:2503 | aws s3 cp - s3://{{ "aws-bucket-name" | lookup }}/backup
