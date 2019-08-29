@@ -1,1 +1,1 @@
-$(dig +short @{{ "lxd-host-ip" | lookup }} {{ project }}-{{ stage }})
+$(dig +short @{{ "lxd-host-ip" | lookup }} {{ "lxd-container-name" | lookup }})

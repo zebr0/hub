@@ -11,7 +11,7 @@ server {
   ssl_certificate_key /etc/letsencrypt/live/{{ "fqdn" | lookup }}/privkey.pem;
 
   resolver {{ "lxd-host-ip" | lookup }};
-  set $resolved "http://{{ project }}-{{ stage }}.lxd";
+  set $resolved "http://{{ "lxd-container-name" | lookup }}.lxd";
 
   location / {
     proxy_pass $resolved;
