@@ -5,4 +5,6 @@
 - lookup: script-aws-heal
   path: /etc/heal.conf.d/aws.yaml
 
+- "! aws s3 ls s3://{{ "aws-bucket-name" | lookup }} | grep -w backup || ( aws s3 cp s3://{{ "aws-bucket-name" | lookup }}/backup /var/tmp/origin && lxc file push /var/tmp/origin {{ project }}-{{ stage }}/var/tmp/origin )"
+
 - include: script-common-reboot

@@ -4,6 +4,8 @@
 - include: script-install-backup
 
 - include: script-install-postgresql10
+- "[ ! -f /var/tmp/origin ] || gunzip /var/tmp/origin -c | pg_restore --host localhost --username postgres --dbname postgres"
+
 - include: script-install-wildfly
 
 - apt-get -y install maven
