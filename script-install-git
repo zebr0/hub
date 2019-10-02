@@ -5,3 +5,7 @@
 
 - git config --system user.useConfigOnly true
 - ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+
+- lookup: script-install-git-gitignore
+  path: /etc/gitignore
+- git config --system core.excludesfile /etc/gitignore

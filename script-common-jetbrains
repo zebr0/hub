@@ -1,6 +1,0 @@
----
-- include: script-install-git
-
-- lookup: script-common-jetbrains-gitignore
-  path: /etc/gitignore
-- git config --system core.excludesfile /etc/gitignore

@@ -1,5 +1,6 @@
 ---
-- include: script-common-jetbrains
+- include: script-install-git
+- include: script-install-nodejs10
 
 - apt-get -y install openjdk-11-jdk
 - apt-get -y install openjdk-11-source
