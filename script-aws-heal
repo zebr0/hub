@@ -1,0 +1,3 @@
+---
+- test: test $(date +%H:%M) -le {{ "backup-time" | lookup }}
+  fix: zebr0-aws-backup

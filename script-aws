@@ -1,3 +1,9 @@
 ---
 - include: script-common-host
+
+- lookup: script-aws-heal
+  path: /etc/heal.conf.d/aws.yaml
+- lookup: zebr0-aws-backup
+  path: /usr/local/bin/zebr0-aws-backup
+
 - include: script-common-reboot

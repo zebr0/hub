@@ -1,0 +1,1 @@
+/var/lib/lxd/storage-pools/{{ "lxd-storagepool-name" | lookup }}/containers/{{ "lxd-container-name" | lookup }}/rootfs

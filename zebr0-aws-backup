@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -u
+
+import pathlib
+
+import zebr0
+
+zebr0_service = zebr0.Service(zebr0.ArgumentParser().parse_args())
+rootfs = zebr0_service.lookup("lxd-container-rootfs")
+pathlib.Path(rootfs + "/var/tmp/backup.touch").touch()

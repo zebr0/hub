@@ -1,6 +1,6 @@
 ---
 storage_pools:
-- name: default
+- name: {{ "lxd-storagepool-name" | lookup }}
   driver: zfs
   config:
     size: {{ "lxd-volume-size" | lookup }}GB
