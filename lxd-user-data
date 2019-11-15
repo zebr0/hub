@@ -1,8 +1,0 @@
-#cloud-config
-ssh_authorized_keys:
-- "{{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}"
-runcmd:
-- add-apt-repository -y ppa:zebr0/master
-- apt-get -y install zebr0-script
-- zebr0-init -u {{ url }} -p {{ project }} -s {{ stage }}
-- zebr0-script run && touch /var/tmp/zebr0-script-done
