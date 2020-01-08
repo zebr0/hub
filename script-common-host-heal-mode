@@ -1,0 +1,5 @@
+---
+- test: "[ ! -f /var/tmp/next-backup ] || [ $(date +%Y%m%d%H%M%S) -lt $(cat /var/tmp/next-backup) ]"
+  mode: normal
+- test: "[ -f /var/tmp/next-backup ] && [ $(date +%Y%m%d%H%M%S) -ge $(cat /var/tmp/next-backup) ]"
+  mode: backup

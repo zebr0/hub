@@ -1,0 +1,9 @@
+---
+- test: heal-check http://{{ "lxd-container-ip" | lookup }}:2501
+  fix: touch /var/tmp/bigfail && false
+- mode: normal
+  test: "[ -f /etc/nginx/sites-enabled/normal ]"
+  fix: rm -f /etc/nginx/sites-enabled/backup && ln -sf /etc/nginx/sites-available/normal /etc/nginx/sites-enabled/normal && systemctl reload nginx
+- mode: backup
+  test: "[ -f /etc/nginx/sites-enabled/backup ]"
+  fix: rm -f /etc/nginx/sites-enabled/normal && ln -sf /etc/nginx/sites-available/backup /etc/nginx/sites-enabled/backup && systemctl reload nginx

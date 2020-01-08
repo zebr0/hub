@@ -1,0 +1,5 @@
+---
+- test: heal-check http://{{ "lxd-host-ip" | lookup }}:2501 -m normal
+  mode: normal
+- test: heal-check http://{{ "lxd-host-ip" | lookup }}:2501 -m backup
+  mode: backup

@@ -1,0 +1,16 @@
+---
+- mode: normal
+  test: systemctl is-enabled wildfly.service
+  fix: systemctl enable wildfly.service
+- mode: normal
+  test: systemctl is-active wildfly.service
+  fix: systemctl start wildfly.service && sleep 10
+- mode: backup
+  test: "! systemctl is-enabled wildfly.service"
+  fix: systemctl disable wildfly.service
+- mode: backup
+  test: "! systemctl is-active wildfly.service"
+  fix: systemctl stop wildfly.service && sleep 10
+- mode: backup
+  test: "[ -f /var/tmp/backup/postgresql.custom ]"
+  fix: "pg_dump -Fc -U postgres -h localhost > /var/tmp/backup/postgresql.custom"

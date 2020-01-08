@@ -5,10 +5,15 @@
 - include: script-install-lxd
 - zebr0-lxd create
 
-- lookup: script-common-host-nginx
-  path: /etc/nginx/sites-available/lxd
-- ln -sf /etc/nginx/sites-available/lxd /etc/nginx/sites-enabled/lxd
+- date +%Y%m%d%H%M%S -d "next day 03:00 utc" > /var/tmp/next-backup
+
+- lookup: script-common-host-nginx-normal
+  path: /etc/nginx/sites-available/normal
+- lookup: script-common-host-nginx-backup
+  path: /etc/nginx/sites-available/backup
 
 - apt-get -y install heal-check
-- lookup: script-common-host-heal
+- lookup: script-common-host-heal-conf
   path: /etc/heal.conf.d/host.yaml
+- lookup: script-common-host-heal-mode
+  path: /etc/heal.conf.d/host.mode

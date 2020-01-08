@@ -1,3 +1,0 @@
----
-- test: heal-check http://{{ "lxd-container-ip" | lookup }}:2501
-  fix: touch /var/tmp/bigfail && false

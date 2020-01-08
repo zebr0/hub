@@ -14,4 +14,11 @@
   path: /etc/nginx/sites-available/wildfly
 - ln -sf /etc/nginx/sites-available/wildfly /etc/nginx/sites-enabled/wildfly
 
+- apt-get -y install heal-check
+- lookup: script-heal-conf
+  path: /etc/heal.conf.d/container.yaml
+- lookup: script-heal-mode
+  path: /etc/heal.conf.d/container.mode
+- mkdir -p /var/tmp/backup
+
 - include: script-common-reboot
