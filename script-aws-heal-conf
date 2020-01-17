@@ -1,0 +1,4 @@
+---
+- mode: clone
+  test: "aws s3 ls s3://{{ "aws-bucket-name" | lookup }}/$(cat /var/tmp/next-backup)/"
+  fix: "aws s3 cp /var/lib/lxd/containers/{{ "lxd-container-name" | lookup }}/rootfs/var/tmp/backup/ s3://{{ "aws-bucket-name" | lookup }}/$(cat /var/tmp/next-backup) --recursive"

@@ -1,3 +1,8 @@
 ---
 - include: script-common-host
+
+- apt-get -y install awscli
+- lookup: script-aws-heal-conf
+  path: /etc/heal.conf.d/aws.yaml
+
 - include: script-common-reboot
