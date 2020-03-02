@@ -10,7 +10,6 @@
 - tar -xf /var/tmp/source.tar.gz -C /usr/local/src
 - mvn -f /usr/local/src/{{ project }}-{{ stage }}/pom.xml install
 
-- include: script-install-nginx
 - lookup: script-install-wildfly-nginx
   path: /etc/nginx/sites-available/wildfly
 - ln -sf /etc/nginx/sites-available/wildfly /etc/nginx/sites-enabled/wildfly
