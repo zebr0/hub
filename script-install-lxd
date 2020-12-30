@@ -3,7 +3,7 @@
 
 - apt-get -y install zfsutils-linux
 - apt-get -y install lxd
-- apt-get -y install zebr0-lxd
+# todo: - apt-get -y install zebr0-lxd
 
 - key: script-install-lxd-preseed
   target: /var/tmp/lxd-preseed.yml
