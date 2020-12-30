@@ -5,6 +5,6 @@
 - apt-get -y install lxd
 - apt-get -y install zebr0-lxd
 
-- lookup: script-install-lxd-preseed
-  path: /var/tmp/lxd-preseed.yml
+- key: script-install-lxd-preseed
+  target: /var/tmp/lxd-preseed.yml
 - cat /var/tmp/lxd-preseed.yml | lxd init --preseed

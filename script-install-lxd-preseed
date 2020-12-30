@@ -3,13 +3,13 @@ storage_pools:
 - name: default
   driver: zfs
   config:
-    size: {{ "lxd-volume-size" | lookup }}GB
+    size: {{ "lxd-volume-size" | get }}GB
 
 networks:
 - name: lxd0
   type: bridge
   config:
-    ipv4.address: {{ "lxd-network-cidr" | lookup }}
+    ipv4.address: {{ "lxd-network-cidr" | get }}
     ipv4.nat: true
     ipv6.address: none
     dns.mode: dynamic

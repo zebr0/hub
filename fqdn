@@ -1,1 +1,1 @@
-{{ stage }}.{{ project }}.{{ "domain-name" | lookup }}
+{{ stage }}.{{ project }}.{{ "domain-name" | get }}

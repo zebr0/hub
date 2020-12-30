@@ -1,8 +1,8 @@
 ---
 - apt-get -y install postgresql-10
 
-- lookup: script-install-postgresql10-hbaconf
-  path: /var/tmp/pg_hba.conf.patch
+- key: script-install-postgresql10-hbaconf
+  target: /var/tmp/pg_hba.conf.patch
 - su postgres -c "patch /etc/postgresql/10/main/pg_hba.conf /var/tmp/pg_hba.conf.patch"
 
 - systemctl restart postgresql@10-main.service

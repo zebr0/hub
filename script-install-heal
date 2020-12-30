@@ -1,9 +1,9 @@
 ---
 - include: script-install-nginx
-- lookup: script-install-heal-nginx
-  path: /etc/nginx/sites-available/heal
+- key: script-install-heal-nginx
+  target: /etc/nginx/sites-available/heal
 - ln -sf /etc/nginx/sites-available/heal /etc/nginx/sites-enabled/heal
 
 - apt-get -y install heal
-- lookup: script-install-heal-conf
-  path: /etc/heal.conf.d/default.yaml
+- key: script-install-heal-conf
+  target: /etc/heal.conf.d/default.yaml

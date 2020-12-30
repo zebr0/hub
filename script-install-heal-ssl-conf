@@ -1,3 +1,3 @@
 ---
-- test: netstat -ltn4 | grep 0.0.0.0:2502 && curl --fail https://{{ "fqdn" | lookup }}:2502
+- test: netstat -ltn4 | grep 0.0.0.0:2502 && curl --fail https://{{ "fqdn" | get }}:2502
   fix: systemctl restart nginx.service && sleep 5

@@ -1,1 +1,1 @@
-$(dig +short @{{ "lxd-host-ip" | lookup }} {{ "lxd-container-name" | lookup }})
+$(dig +short @{{ "lxd-host-ip" | get }} {{ "lxd-container-name" | get }})

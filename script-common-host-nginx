@@ -7,11 +7,11 @@ server {
 server {
   listen 443 ssl;
 
-  ssl_certificate /etc/letsencrypt/live/{{ "fqdn" | lookup }}/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/{{ "fqdn" | lookup }}/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/{{ "fqdn" | get }}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/{{ "fqdn" | get }}/privkey.pem;
 
-  resolver {{ "lxd-host-ip" | lookup }};
-  set $resolved "http://{{ "lxd-container-name" | lookup }}.lxd";
+  resolver {{ "lxd-host-ip" | get }};
+  set $resolved "http://{{ "lxd-container-name" | get }}.lxd";
 
   location / {
     proxy_pass $resolved;

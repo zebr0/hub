@@ -2,8 +2,8 @@
 - include: script-install-heal
 - include: script-install-letsencrypt
 
-- lookup: script-install-heal-ssl-conf
-  path: /etc/heal.conf.d/heal-ssl.yaml
-- lookup: script-install-heal-ssl-nginx
-  path: /etc/nginx/sites-available/heal-ssl
+- key: script-install-heal-ssl-conf
+  target: /etc/heal.conf.d/heal-ssl.yaml
+- key: script-install-heal-ssl-nginx
+  target: /etc/nginx/sites-available/heal-ssl
 - ln -sf /etc/nginx/sites-available/heal-ssl /etc/nginx/sites-enabled/heal-ssl

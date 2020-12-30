@@ -5,10 +5,10 @@
 - include: script-install-lxd
 - zebr0-lxd create
 
-- lookup: script-common-host-nginx
-  path: /etc/nginx/sites-available/lxd
+- key: script-common-host-nginx
+  target: /etc/nginx/sites-available/lxd
 - ln -sf /etc/nginx/sites-available/lxd /etc/nginx/sites-enabled/lxd
 
 - apt-get -y install heal-check
-- lookup: script-common-host-heal
-  path: /etc/heal.conf.d/host.yaml
+- key: script-common-host-heal
+  target: /etc/heal.conf.d/host.yaml

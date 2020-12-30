@@ -1,6 +1,6 @@
 ---
 containers:
-- name: {{ "lxd-container-name" | lookup }}
+- name: {{ "lxd-container-name" | get }}
   source:
     type: image
     mode: pull

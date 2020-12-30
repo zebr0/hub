@@ -9,13 +9,13 @@
 
 - wget -q https://jdbc.postgresql.org/download/postgresql-42.2.6.jar -O /var/tmp/postgresql.jar
 
-- lookup: script-install-wildfly-service
-  path: /lib/systemd/system/wildfly.service
+- key: script-install-wildfly-service
+  target: /lib/systemd/system/wildfly.service
 - systemctl enable wildfly.service
 - systemctl start wildfly.service
 - sleep 10
 
-- lookup: script-install-wildfly-conf
-  path: /var/tmp/wildfly-install.conf
+- key: script-install-wildfly-conf
+  target: /var/tmp/wildfly-install.conf
 - su ubuntu -c "/opt/wildfly/bin/jboss-cli.sh -c --file=/var/tmp/wildfly-install.conf"
 - su ubuntu -c "/opt/wildfly/bin/add-user.sh admin admin"
