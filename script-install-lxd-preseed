@@ -29,4 +29,4 @@ profiles:
     user.user-data: |
       #cloud-config
       ssh_authorized_keys:
-      - {{ "cat /home/ubuntu/.ssh/id_rsa.pub" | sh }}
+      - {{ "/home/ubuntu/.ssh/id_rsa.pub" | read }}
