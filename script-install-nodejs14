@@ -1,4 +1,0 @@
----
-- wget -O- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-- add-apt-repository https://deb.nodesource.com/node_14.x
-- apt-get -y install nodejs
